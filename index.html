@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>����� ���� ��� �����</title>
+  <title>ãÔÇæÑ ÌíÑå ãÑÛ æÔÊí</title>
   <style>
     body {
       font-family: sans-serif;
@@ -34,15 +34,15 @@
 </head>
 <body>
 
-  <h1>?? ����� ����� ��� �����</h1>
+  <h1>?? ãÔÇæÑ ÊÛÐíå ãÑÛ æÔÊí</h1>
 
-  <input type="text" id="age" placeholder="�� ��� (�� ���)">
+  <input type="text" id="age" placeholder="Óä ãÑÛ (Èå ÑæÒ)">
   <br>
-  <input type="text" id="weight" placeholder="��� ��� (������)">
+  <input type="text" id="weight" placeholder="æÒä ãÑÛ (˜íáæÑã)">
   <br>
-  <input type="text" id="health" placeholder="����� ����� / �������">
+  <input type="text" id="health" placeholder="æÖÚíÊ ÓáÇãÊ / ÊæÖíÍÇÊ">
   <br>
-  <button onclick="showResponse()">������ ���� �����</button>
+  <button onclick="showResponse()">ÏÑíÇÝÊ ÌíÑå ÛÐÇíí</button>
 
   <div id="response"></div>
 
@@ -52,18 +52,18 @@
       const weight = document.getElementById("weight").value;
       const health = document.getElementById("health").value;
 
-      const prompt = `��� ����� �� �� ${age} ��� � ��� ${weight} ������ � ����� ${health} ����. ����� ���� ����� ����� ������� ����.`;
+      const prompt = `ãÑÛ æÔÊí ÈÇ Óä ${age} ÑæÒ æ æÒä ${weight} ˜íáæÑã æ æÖÚíÊ ${health} ÏÇÑÏ. áØÝÇð ÌíÑå ÛÐÇíí ãäÇÓÈ íÔäåÇÏ ÏåíÏ.`;
 
       const responseBox = document.getElementById("response");
       
-      // ?? ����� ���� ���ʐ� ���� ���
+      // ?? ÝÚáÇð ÇÓÎ ÓÇÎÊí ÈÑÇí ÊÓÊ
       responseBox.innerHTML = `
-        <strong>�������:</strong><br>
-        ���� ��� ${age} ���� �� ��� ${weight} ������:<br>
-        - �������: 21?<br>
-        - ��ю�: 2900 ��������<br>
-        - ��� ��������: ��� ����<br><br>
-        ����: ��� ���� ����� ���. ���� ����� �� GPT ���� ����� ���.
+        <strong>íÔäåÇÏ:</strong><br>
+        ÈÑÇí ãÑÛ ${age} ÑæÒå ÈÇ æÒä ${weight} ˜íáæÑã:<br>
+        - ÑæÊÆíä: 21?<br>
+        - ÇäÑŽí: 2900 ˜íáæ˜ÇáÑí<br>
+        - ã˜ãá æíÊÇãíäí: ØÈÞ äíÇÒ<br><br>
+        ÊæÌå: Çíä ÇÓÎ äãæäå ÇÓÊ. äÓÎå äåÇíí ÈÇ GPT ÇÓÎ ÎæÇåÏ ÏÇÏ.
       `;
     }
   </script>
