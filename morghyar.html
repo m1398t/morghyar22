@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ãÔÇæÑ ÌíÑå ãÑÛ æÔÊí</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 40px;
+      direction: rtl;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    input, button {
+      padding: 10px;
+      margin: 8px;
+      width: 300px;
+      font-size: 16px;
+    }
+    #response {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>?? ãÔÇæÑ ÊÛĞíå ãÑÛ æÔÊí</h1>
+
+  <input type="text" id="age" placeholder="Óä ãÑÛ (Èå ÑæÒ)">
+  <br>
+  <input type="text" id="weight" placeholder="æÒä ãÑÛ (˜íáæÑã)">
+  <br>
+  <input type="text" id="health" placeholder="æÖÚíÊ ÓáÇãÊ / ÊæÖíÍÇÊ">
+  <br>
+  <button onclick="showResponse()">ÏÑíÇİÊ ÌíÑå ÛĞÇíí</button>
+
+  <div id="response"></div>
+
+  <script>
+    function showResponse() {
+      const age = document.getElementById("age").value;
+      const weight = document.getElementById("weight").value;
+      const health = document.getElementById("health").value;
+
+      const prompt = `ãÑÛ æÔÊí ÈÇ Óä ${age} ÑæÒ æ æÒä ${weight} ˜íáæÑã æ æÖÚíÊ ${health} ÏÇÑÏ. áØİÇğ ÌíÑå ÛĞÇíí ãäÇÓÈ íÔäåÇÏ ÏåíÏ.`;
+
+      const responseBox = document.getElementById("response");
+      
+      // ?? İÚáÇğ ÇÓÎ ÓÇÎÊí ÈÑÇí ÊÓÊ
+      responseBox.innerHTML = `
+        <strong>íÔäåÇÏ:</strong><br>
+        ÈÑÇí ãÑÛ ${age} ÑæÒå ÈÇ æÒä ${weight} ˜íáæÑã:<br>
+        - ÑæÊÆíä: 21?<br>
+        - ÇäÑí: 2900 ˜íáæ˜ÇáÑí<br>
+        - ã˜ãá æíÊÇãíäí: ØÈŞ äíÇÒ<br><br>
+        ÊæÌå: Çíä ÇÓÎ äãæäå ÇÓÊ. äÓÎå äåÇíí ÈÇ GPT ÇÓÎ ÎæÇåÏ ÏÇÏ.
+      `;
+    }
+  </script>
+
+</body>
+</html>
