@@ -2,71 +2,55 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>مشاور جيره مرغ گوشتي</title>
+  <title>مشاور تغذیه مرغ گوشتی</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f0f0f0;
-      text-align: center;
-      padding: 40px;
-      direction: rtl;
-    }
-    h1 {
-      color: #4CAF50;
-    }
-    input, button {
-      padding: 10px;
-      margin: 8px;
-      width: 300px;
-      font-size: 16px;
-    }
-    #response {
-      background: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      margin-top: 20px;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: justify;
-    }
+    body { font-family: Tahoma, sans-serif; background: #f5f5f5; padding: 40px; direction: rtl; text-align: center; }
+    input, button { padding: 10px; margin: 10px; width: 300px; font-size: 16px; }
+    #response { background: #fff; padding: 20px; margin-top: 30px; width: 80%; margin-left: auto; margin-right: auto; border: 1px solid #ccc; text-align: justify; }
   </style>
 </head>
 <body>
+  <h1>🧠 مشاور جیره غذایی مرغ گوشتی</h1>
 
-  <h1>?? مشاور تغذيه مرغ گوشتي</h1>
-
-  <input type="text" id="age" placeholder="سن مرغ (به روز)">
+  <input type="text" id="age" placeholder="سن مرغ (روز)">
   <br>
-  <input type="text" id="weight" placeholder="وزن مرغ (کيلوگرم)">
+  <input type="text" id="weight" placeholder="وزن مرغ (کیلوگرم)">
   <br>
-  <input type="text" id="health" placeholder="وضعيت سلامت / توضيحات">
+  <input type="text" id="health" placeholder="وضعیت سلامت / توضیحات">
   <br>
-  <button onclick="showResponse()">دريافت جيره غذايي</button>
+  <button onclick="askGPT()">دریافت جیره غذایی</button>
 
   <div id="response"></div>
 
   <script>
-    function showResponse() {
-      const age = document.getElementById("age").value;
-      const weight = document.getElementById("weight").value;
-      const health = document.getElementById("health").value;
+    async function askGPT() {
+      const age = document.getElementById('age').value;
+      const weight = document.getElementById('weight').value;
+      const health = document.getElementById('health').value;
 
-      const prompt = `مرغ گوشتي با سن ${age} روز و وزن ${weight} کيلوگرم و وضعيت ${health} دارد. لطفاً جيره غذايي مناسب پيشنهاد دهيد.`;
+      const prompt = `شما یک مشاور متخصص تغذیه مرغ گوشتی هستید. لطفاً برای مرغی با سن ${age} روز، وزن ${weight} کیلوگرم و وضعیت: ${health}، یک جیره غذایی دقیق پیشنهاد دهید (با درصد مواد، مکمل و توصیه‌ها).`;
 
       const responseBox = document.getElementById("response");
-      
-      // ?? فعلاً پاسخ ساختگي براي تست
-      responseBox.innerHTML = `
-        <strong>پيشنهاد:</strong><br>
-        براي مرغ ${age} روزه با وزن ${weight} کيلوگرم:<br>
-        - پروتئين: 21?<br>
-        - انرژي: 2900 کيلوکالري<br>
-        - مکمل ويتاميني: طبق نياز<br><br>
-        توجه: اين پاسخ نمونه است. نسخه نهايي با GPT پاسخ خواهد داد.
-      `;
+      responseBox.innerHTML = "⏳ در حال دریافت پاسخ از GPT...";
+
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer TXYJZDXFAUIADG3QUBJUAROOPJILN5KU"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [
+            { role: "system", content: "شما یک متخصص تغذیه طیور هستید. پاسخ‌ها باید علمی، دقیق و ساده‌فهم باشند." },
+            { role: "user", content: prompt }
+          ]
+        })
+      });
+
+      const data = await response.json();
+      responseBox.innerHTML = data.choices[0].message.content;
     }
   </script>
-
 </body>
 </html>
