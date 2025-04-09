@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ãÔÇæÑ ÌíÑå ãÑÛ æÔÊí</title>
+  <title>مشاور جيره مرغ گوشتي</title>
   <style>
     body {
       font-family: sans-serif;
@@ -34,15 +34,15 @@
 </head>
 <body>
 
-  <h1>?? ãÔÇæÑ ÊÛÐíå ãÑÛ æÔÊí</h1>
+  <h1>?? مشاور تغذيه مرغ گوشتي</h1>
 
-  <input type="text" id="age" placeholder="Óä ãÑÛ (Èå ÑæÒ)">
+  <input type="text" id="age" placeholder="سن مرغ (به روز)">
   <br>
-  <input type="text" id="weight" placeholder="æÒä ãÑÛ (˜íáæÑã)">
+  <input type="text" id="weight" placeholder="وزن مرغ (کيلوگرم)">
   <br>
-  <input type="text" id="health" placeholder="æÖÚíÊ ÓáÇãÊ / ÊæÖíÍÇÊ">
+  <input type="text" id="health" placeholder="وضعيت سلامت / توضيحات">
   <br>
-  <button onclick="showResponse()">ÏÑíÇÝÊ ÌíÑå ÛÐÇíí</button>
+  <button onclick="showResponse()">دريافت جيره غذايي</button>
 
   <div id="response"></div>
 
@@ -52,18 +52,18 @@
       const weight = document.getElementById("weight").value;
       const health = document.getElementById("health").value;
 
-      const prompt = `ãÑÛ æÔÊí ÈÇ Óä ${age} ÑæÒ æ æÒä ${weight} ˜íáæÑã æ æÖÚíÊ ${health} ÏÇÑÏ. áØÝÇð ÌíÑå ÛÐÇíí ãäÇÓÈ íÔäåÇÏ ÏåíÏ.`;
+      const prompt = `مرغ گوشتي با سن ${age} روز و وزن ${weight} کيلوگرم و وضعيت ${health} دارد. لطفاً جيره غذايي مناسب پيشنهاد دهيد.`;
 
       const responseBox = document.getElementById("response");
       
-      // ?? ÝÚáÇð ÇÓÎ ÓÇÎÊí ÈÑÇí ÊÓÊ
+      // ?? فعلاً پاسخ ساختگي براي تست
       responseBox.innerHTML = `
-        <strong>íÔäåÇÏ:</strong><br>
-        ÈÑÇí ãÑÛ ${age} ÑæÒå ÈÇ æÒä ${weight} ˜íáæÑã:<br>
-        - ÑæÊÆíä: 21?<br>
-        - ÇäÑŽí: 2900 ˜íáæ˜ÇáÑí<br>
-        - ã˜ãá æíÊÇãíäí: ØÈÞ äíÇÒ<br><br>
-        ÊæÌå: Çíä ÇÓÎ äãæäå ÇÓÊ. äÓÎå äåÇíí ÈÇ GPT ÇÓÎ ÎæÇåÏ ÏÇÏ.
+        <strong>پيشنهاد:</strong><br>
+        براي مرغ ${age} روزه با وزن ${weight} کيلوگرم:<br>
+        - پروتئين: 21?<br>
+        - انرژي: 2900 کيلوکالري<br>
+        - مکمل ويتاميني: طبق نياز<br><br>
+        توجه: اين پاسخ نمونه است. نسخه نهايي با GPT پاسخ خواهد داد.
       `;
     }
   </script>
